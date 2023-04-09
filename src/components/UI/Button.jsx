@@ -1,110 +1,73 @@
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
+import { Button, styled } from '@mui/material'
+import React from 'react'
 
-// export default function ButtonSizes() {
-//   return (
-//     <Box sx={{ '& button': { m: 1 } }}>
-//       <div>
-//         <Button size="small">Войти</Button>
-//         <Button size="medium"> Добавить подарок</Button>
-//         <Button size="large">Отмена</Button>
-//       </div>
-//       <div>
-//         <Button variant="outlined" size="small">
-//           Войти
-//         </Button>
-//         <Button variant="outlined" size="medium">
-//           Добавить подарок
-//         </Button>
-//         <Button variant="outlined" size="large">
-//           Отмена
-//         </Button>
-//       </div>
-//       <div>
-//         <Button variant="contained" size="small">
-//           Войти
-//         </Button>
-//         <Button variant="contained" size="medium">
-//           Добавить подарок
-//         </Button>
-//         <Button variant="contained" size="large">
-//           Отмена
-//         </Button>
-//       </div>
-//     </Box>
-//   );
-// }
+const MyButton = ({
+   variant,
+   hoverbackgroundcolor,
+   disabled,
+   activebackgroundcolor,
+   defaultcolor,
+   disabledcolor,
+   children,
+   ...rest
+}) => {
+   return (
+      <StyleButton
+         variant={variant}
+         disabled={disabled}
+         hoverbackgroundcolor={hoverbackgroundcolor}
+         activebackgroundcolor={activebackgroundcolor}
+         defaultcolor={defaultcolor}
+         disabledcolor={disabledcolor}
+         {...rest}
+      >
+         {children}
+      </StyleButton>
+   )
+}
 
-// import React, { useState } from 'react';
-// import Button from '@mui/material/Button';
-// import { withStyles } from '@mui/material/styles';
+export default MyButton
 
-// type Props = {
-//   onClick: () => void;
-//   handleClick: () => void;
-// };
-// // type color = {
-// //   onClick: () => void;
-// // };
-// function ColorButton(props: Props) {
-//   const [color, setColor] = useState(props.color);
-//   const styles = {
-//     button: {
-//       borderRadius: 20,
-//       padding: '10px 20px',
-//       fontWeight: 'bold',
-//       fontSize: 16
-//     }
-//   };
-//   function handleClick() {
-//     setColor(color === props.color ? props.newColor : props.color);
-//     if (props.onClick) {
-//       props.onClick();
-//     }
-//   }
-
-//   return (
-//     <Button variant={props.variant} color={color} onClick={handleClick} className={props.className}>
-//       {props.label}
-//     </Button>
-//   );
-// }
-// // export default ColorButton;
-// export default withStyles(styles)(ColorButton);
-// import React, { useState } from 'react'
-// import Button from '@mui/material/Button'
-// import { withStyles } from '@mui/material/styles'
-
-// const styles = {
-//    button: {
-//       borderRadius: 20,
-//       padding: '10px 20px',
-//       fontWeight: 'bold',
-//       fontSize: 16,
-//    },
-// }
-
-// function ColorButton(props) {
-//    const [color, setColor] = useState(props.color)
-
-//    function handleClick() {
-//       setColor(color === props.color ? props.newColor : props.color)
-//       if (props.onClick) {
-//          props.onClick()
-//       }
-//    }
-
-//    return (
-//       <Button
-//          variant={props.variant}
-//          color={color}
-//          onClick={handleClick}
-//          className={props.classes.button}
-//       >
-//          {props.label}
-//       </Button>
-//    )
-// }
-
-// export default withStyles(styles)(ColorButton)
+const StyleButton = styled(Button)(
+   ({
+      variant,
+      defaultcolor,
+      hoverbackgroundcolor,
+      activebackgroundcolor,
+      disabledcolor,
+   }) => {
+      switch (variant) {
+         case 'contained':
+            return {
+               backgroundColor: '#8639B5',
+               color: `${defaultcolor}`,
+               gap: '10px',
+               padding: '10px 26px',
+               '&:hover': {
+                  background: `${hoverbackgroundcolor}`,
+               },
+               '&:active': {
+                  background: `${activebackgroundcolor}`,
+               },
+               '&:disabled': {
+                  color: `${disabledcolor}`,
+               },
+            }
+         case 'outlined':
+            return {
+               gap: '10px',
+               padding: '10px 26px',
+               backgroundColor: 'none',
+               color: '#8D949E',
+               '&:disabled': {
+                  color: `${disabledcolor}`,
+                  background: 'none',
+               },
+            }
+         default:
+            return {
+               backgroundColor: 'green',
+            }
+      }
+   }
+)
