@@ -1,4 +1,10 @@
+import { Checkboxes } from './components/UI/Checkboxes'
+
 function App() {
-   return <div />
+   return (
+      <div>
+         <Checkboxes />
+      </div>
+   )
 }
 export default App
