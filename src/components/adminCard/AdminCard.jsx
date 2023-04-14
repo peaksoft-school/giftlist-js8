@@ -4,16 +4,19 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import styled from '@emotion/styled'
-import { ReactComponent as CardIcons } from '../../assets/icons/cardIcon.svg'
+import Meatballs from '../UI/Meatballs'
+import { useMeatballs } from '../../hooks/useMeatballs'
 
-export default function AdminCard({
+const AdminCard = ({
    dataCategory,
    DATA_WISHLIST,
    DATA_HOLIDAYS,
    DATA_CHARITY,
-}) {
-   let data
+   MEATBALLS_CONTENT,
+}) => {
+   const { handleClick, handleClose, open, anchorEl } = useMeatballs()
 
+   let data
    switch (dataCategory) {
       case 'wishlist':
          data = DATA_WISHLIST
@@ -31,7 +34,7 @@ export default function AdminCard({
    return (
       <StyledCard>
          {data.map((item) => (
-            <>
+            <div key={item.id}>
                <CardMedia
                   component="img"
                   height="149"
@@ -48,13 +51,21 @@ export default function AdminCard({
                <StyledCardActions>
                   {item.date}
                   <StyledExpectation>{item.expectation}</StyledExpectation>
-                  <CardIcons />
+                  <Meatballs
+                     arrayIcon={MEATBALLS_CONTENT}
+                     handleClick={handleClick}
+                     handleClose={handleClose}
+                     open={open}
+                     anchorEl={anchorEl}
+                  />
                </StyledCardActions>
-            </>
+            </div>
          ))}
       </StyledCard>
    )
 }
+
+export default AdminCard
 
 const StyledCard = styled(Card)`
    padding: 16px;
@@ -76,10 +87,21 @@ const StyledCardContent = styled(CardContent)(
 
 const Title = styled.div`
    font-family: 'Inter';
+   font-style: normal;
    font-weight: 600;
    font-size: 14px;
    line-height: 130%;
    color: #000000;
+`
+
+const StyledBirthDate = styled.div`
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 16px;
+   color: #0ba360;
+   padding-left: 86px;
 `
 
 const StyledCardActions = styled(CardActions)(
@@ -98,7 +120,7 @@ const StyledCardActions = styled(CardActions)(
 )
 
 const StyledExpectation = styled.div`
-   margin-left: 145px;
+   margin-left: 115px;
    padding: 0;
 `
 
@@ -106,12 +128,4 @@ const StyledStatus = styled.div`
    font-weight: 500;
    font-size: 14px;
    color: #fd5200;
-`
-
-const StyledBirthDate = styled.div`
-   font-weight: 400;
-   font-size: 13px;
-   line-height: 16px;
-   color: #0ba360;
-   margin-left: 125px;
 `
