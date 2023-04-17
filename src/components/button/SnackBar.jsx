@@ -88,13 +88,6 @@ const ToastifyStyled = styled(ToastContainer)(() => ({
       alignItems: 'flex-start',
       color: 'black',
    },
-   // '& .Toastify__toast': {
-   //    marginTop: '10px',
-   //    alignItems: 'flex-start',
-   //    path: {
-   //       fill: '#00AB1B',
-   //    },
-   // },
 
    '& .Toastify__close-button': {
       path: {
