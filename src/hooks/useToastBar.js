@@ -33,7 +33,7 @@ const Message = styled('p')(() => ({
    color: '#000000',
 }))
 
-const useToastBar = (type, title, message) => {
+function useToastBar(type, title, message) {
    const notify = () =>
       toast[type](
          <>
