@@ -8,6 +8,10 @@ import { ReactComponent as Vk } from '../assets/svg/WkIcon.svg'
 import { ReactComponent as ArrowIcons } from '../assets/svg/ArrowDown.svg'
 import MyButton from '../components/UI/Button'
 import SecondSection from './SecondSection'
+import ThrirdSection from './ThrirdSection'
+import FourSection from './FourSection'
+import FiveSection from './FiveSection'
+import Footer from './Footer'
 
 export const LandingPage = () => {
    return (
@@ -82,6 +86,10 @@ export const LandingPage = () => {
             </Container>
          </Header>
          <SecondSection />
+         <ThrirdSection />
+         <FourSection />
+         <FiveSection />
+         <Footer />
       </>
    )
 }
@@ -102,13 +110,14 @@ const Header = styled('header')(() => ({
 const Container = styled('div')(() => ({
    maxWidth: '1440px',
    margin: ' 0 auto',
+   paddingBottom: '75px',
 }))
 const HeaderNav = styled('nav')(() => ({
    display: 'flex',
    justifyContent: 'space-between',
    alignItems: 'center',
    width: '1140px',
-   padding: '25px 135px 0 135px',
+   paddingTop: '25px',
 }))
 const NavMenu = styled('nav')(() => ({
    fontFamily: 'Inter',
@@ -132,7 +141,7 @@ const HeaderContent = styled('nav')(() => ({
    display: 'flex',
    justifyContent: 'space-between',
    alignItems: 'center',
-   padding: '25px 135px 120px 135px',
+   maxWidth: '1440px',
 }))
 const SocialContent = styled('div')(() => ({}))
 const SocialIcons = styled('div')(() => ({

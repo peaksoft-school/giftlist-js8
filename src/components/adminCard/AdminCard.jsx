@@ -5,30 +5,31 @@ import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import styled from '@emotion/styled'
 import Meatballs from '../UI/Meatballs'
-import { useMeatballs } from '../../hooks/useMeatballs'
 
 const AdminCard = ({
    dataCategory,
-   DATA_WISHLIST,
-   DATA_HOLIDAYS,
-   DATA_CHARITY,
-   MEATBALLS_CONTENT,
+   dataWishlist,
+   dataHolidays,
+   dataCharity,
+   meatballsContent,
+   handleClick,
+   handleClose,
+   open,
+   anchorEl,
 }) => {
-   const { handleClick, handleClose, open, anchorEl } = useMeatballs()
-
    let data
    switch (dataCategory) {
       case 'wishlist':
-         data = DATA_WISHLIST
+         data = dataWishlist
          break
       case 'holidays':
-         data = DATA_HOLIDAYS
+         data = dataHolidays
          break
       case 'charity':
-         data = DATA_CHARITY
+         data = dataCharity
          break
       default:
-         data = DATA_WISHLIST
+         data = dataWishlist
    }
 
    return (
@@ -52,7 +53,7 @@ const AdminCard = ({
                   {item.date}
                   <StyledExpectation>{item.expectation}</StyledExpectation>
                   <Meatballs
-                     arrayIcon={MEATBALLS_CONTENT}
+                     arrayIcon={meatballsContent}
                      handleClick={handleClick}
                      handleClose={handleClose}
                      open={open}
