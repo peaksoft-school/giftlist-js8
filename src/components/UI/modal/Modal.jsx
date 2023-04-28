@@ -19,4 +19,8 @@ const StyledBox = styled('div')({
    backgroundColor: '#fff',
    left: '50%',
    transform: 'translate(-50%, -50%)',
+   '&:focus-visible': {
+      outline: 'none',
+      boxShadow: 'none',
+   },
 })
