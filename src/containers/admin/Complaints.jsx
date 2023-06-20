@@ -3,7 +3,7 @@ import React from 'react'
 const Complaints = () => {
    return (
       <div>
-         <h1>Complaints</h1>
+         <h1>Жалобы</h1>
       </div>
    )
 }
