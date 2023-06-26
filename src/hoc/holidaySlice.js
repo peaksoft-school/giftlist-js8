@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getHolidays, postHoliday } from '../redux/holiday/holydayThunk'
+import { getGlobalSeachThunk } from '../redux/globalSeach/globalSeachThunk'
 
 const initialState = {
    holiday: [],
@@ -32,6 +33,13 @@ export const holidaySlice = createSlice({
          .addCase(postHoliday.rejected, (state, action) => {
             state.error = action.payload
             state.isLoading = false
+         })
+         .addCase(getGlobalSeachThunk.fulfilled, (state, action) => {
+            if (Array.isArray(action.payload)) {
+               if (action.payload.length) {
+                  state.holiday = action.payload
+               }
+            }
          })
    },
 })

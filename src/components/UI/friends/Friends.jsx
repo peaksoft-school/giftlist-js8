@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { styled } from '@mui/material'
+import { Tabs, styled } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import Tabs from '../../../components/UI/tabs/Tabs'
-import UserCard from '../../../components/UI/user-cards/UserCard'
 import useToastBar from '../../../hooks/useToastBar'
 import {
    getAllFriendsRequest,
    getAllRequestsToFriend,
 } from '../../../service/friendsService'
 import RequestsToFriends from './RequstsToFriends'
-import Snackbar from '../../../components/button/SnackBar'
+import Snackbar from '../../button/SnackBar'
+import UserCard from '../user-cards/UserCard'
 
 const Friends = () => {
    const [userData, setUserData] = useState([])
@@ -49,6 +48,7 @@ const Friends = () => {
          return errorFunction()
       }
    }
+
    useEffect(() => {
       getAllFriends()
       getAllRequests()

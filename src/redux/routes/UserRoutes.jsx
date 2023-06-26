@@ -14,16 +14,14 @@ import { AllWishesPage } from '../../containers/user/booked/AllWishesPage'
 import { AllCharityPage } from '../../containers/user/booked/AllCharityPage'
 import CharityDetails from '../../containers/user/charities/CharityDetails'
 import AddCharity from '../../containers/user/charities/AddCharity'
-import Friends from '../../containers/user/friends/Friends'
-import FriendProfile from '../../containers/user/friends/FriendProfile'
 import AllCharities from '../../containers/admin/users/AllCharities'
 import AllGifts from '../../containers/admin/users/AllWishes'
 import AllHolidays from '../../containers/admin/users/AllHolidays'
 import Profile from '../../containers/user/Profile'
 import Logout from '../../containers/user/Logout'
 import ProfileEdit from '../../containers/user/ProfileEdit'
-
-
+import Friends from '../../components/UI/friends/Friends'
+import FriendProfile from '../../components/UI/friends/FriendProfile'
 
 const UserRoutes = () => {
    return (
@@ -95,7 +93,6 @@ const UserRoutes = () => {
                   INITIAL_PATH.USER.holidays &&
                   INITIAL_PATH.USER.holiday_details
                }
-               element={<PrivateRoute component={MyHolidays} />}
                element={<PrivateRoute component={MyHolidaysCard} />}
             />
 
