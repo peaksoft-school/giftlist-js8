@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import { Tabs, styled } from '@mui/material'
+import React, { useEffect, useState, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useToastBar from '../../../hooks/useToastBar'
 import {
@@ -107,4 +107,4 @@ const Container = styled('div')`
    align-items: flex-start;
    gap: 45px;
 `
-export default Friends
+export default memo(Friends)

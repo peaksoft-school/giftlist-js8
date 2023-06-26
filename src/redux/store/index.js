@@ -1,19 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from '../reducer/auth/authSlice'
+import { lentaSlice } from '../lenta/lentaSlice'
 import { holidaySlice } from '../../hoc/holidaySlice'
 import { charitySlice } from '../charities/charitySlice'
-import { modalSlice } from '../holiday/modalSlice'
+import { complainsSlice } from '../complains/complainsSlice'
 import { userSlice } from '../user/userSlice'
 import { mailingSlice } from '../newsLetter/mailingSlice'
+import { modalSlice } from '../holiday/modalSlice'
 import { friendSlice } from '../friends/friendSlice'
 import { holidayDetailSlice } from '../holidayDetails/holidayDetailSlice'
 import bookedSlice from '../booked/bookedSlice'
-import { complainsSlice } from '../complains/complainsSlice'
 import { adminCharitySlice } from '../admin-charity/adminCharitySlice'
 
 const store = configureStore({
    reducer: {
       [authSlice.name]: authSlice.reducer,
+      [lentaSlice.name]: lentaSlice.reducer,
       [holidaySlice.name]: holidaySlice.reducer,
       [holidayDetailSlice.name]: holidayDetailSlice.reducer,
       [complainsSlice.name]: complainsSlice.reducer,
@@ -30,5 +32,4 @@ const store = configureStore({
          serializableCheck: false,
       }),
 })
-
 export default store

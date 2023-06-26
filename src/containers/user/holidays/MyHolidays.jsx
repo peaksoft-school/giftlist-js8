@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import { styled } from '@mui/material/styles'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { format } from 'date-fns'
@@ -23,6 +23,7 @@ import AdminCard from '../../../components/adminCard/AdminCard'
 import DateInput from '../../../components/UI/input/DateInput'
 import { ACTION_TYPES } from '../../../utlis/constants/constnats'
 import useToastBar from '../../../hooks/useToastBar'
+import { getHolidayDetails } from '../../../redux/holidayDetails/holidayDetailThunk'
 
 const MyHolidays = () => {
    const dispatch = useDispatch()
@@ -78,6 +79,7 @@ const MyHolidays = () => {
    }, [data, editHolidayData])
 
    const navigateToDetails = (id) => {
+      dispatch(getHolidayDetails(id))
       navigate(`${id}/holiday_details`)
    }
 
@@ -282,7 +284,7 @@ const MyHolidays = () => {
    )
 }
 
-export default MyHolidays
+export default memo(MyHolidays)
 
 const Container = styled('div')({
    display: 'flex',

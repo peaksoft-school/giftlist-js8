@@ -1,4 +1,5 @@
 import { Card, styled } from '@mui/material'
+import { memo } from 'react'
 import MyButton from '../components/UI/Button'
 import Checkboxes from '../components/UI/Checkbox'
 import Spinner from '../components/UI/Spinner'
@@ -158,7 +159,7 @@ function DetailedPage({
    )
 }
 
-export default DetailedPage
+export default memo(DetailedPage)
 const StyledBookText = styled('h3')`
    font-family: 'Inter';
    font-style: normal;
@@ -206,7 +207,6 @@ const StyledCard = styled(Card)(() => ({
    background: '#FFFFFF',
    border: '2px solid #FFFFFF',
    borderRadius: '10px',
-   maxWidth: '1170px',
    height: '100%',
    position: 'relative',
    marginTop: '26px',
@@ -238,6 +238,10 @@ const HeaderBox = styled('div')(() => ({
    display: 'flex',
    alignItems: 'center',
    justifyContent: 'space-between',
+
+   '@media screen and (max-width: 1440px)': {
+      width: '700px',
+   },
 }))
 
 const TitleBox = styled('div')(() => ({
