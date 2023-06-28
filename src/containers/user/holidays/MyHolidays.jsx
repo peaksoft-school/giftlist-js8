@@ -44,6 +44,7 @@ const MyHolidays = () => {
       inputDate: false,
       img: false,
    })
+   const { value } = Object.fromEntries(searchParams)
 
    const holidayValid = () => {
       if (!title) {
@@ -147,7 +148,7 @@ const MyHolidays = () => {
             }
             dispatch(postHoliday(data))
             onCloseModal()
-            showToast('success', 'Успешно', 'Праздник успешно добавлен!')
+            showToast('success', 'Праздник успешно добавлен!')
          }
       } else {
          showToast('warning', 'Пожалуйста!', 'Заполните все поля')
@@ -165,7 +166,7 @@ const MyHolidays = () => {
             }
             dispatch(updateHolidayThunk({ data, ubdateId }))
             onCloseModal()
-            showToast('success', 'Успешно', 'Праздник успешно изменен!')
+            showToast('success', '', 'Праздник успешно изменен!')
          }
       } else {
          showToast('warning', 'Пожалуйста!', 'Заполните все поля')
@@ -177,8 +178,8 @@ const MyHolidays = () => {
    }
 
    useEffect(() => {
-      dispatch(getHolidays(showToast))
-   }, [])
+      dispatch(getHolidays({ showToast, keyWord: value }))
+   }, [value])
 
    return (
       <>
@@ -314,6 +315,5 @@ const Text = styled('h3')({
 })
 
 const StyledMyButton = styled(MyButton)`
-   margin-top: 30px;
-   margin-bottom: 30px;
+   margin: 32px;
 `
