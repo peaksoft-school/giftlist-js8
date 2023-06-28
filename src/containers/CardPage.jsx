@@ -94,9 +94,8 @@ const StyledCard = styled(Card)(() => ({
    background: '#FFFFFF',
    border: '2px solid #FFFFFF',
    borderRadius: '10px',
-   width: '1086px',
-   height: '871px',
-   position: 'relative',
+   height: '571px',
+   width: '100%',
    marginTop: '26px',
 }))
 
@@ -121,8 +120,9 @@ const InfoBox = styled('div')(() => ({
 
 const HeaderBox = styled('div')(() => ({
    display: 'flex',
-   justifyContent: 'space-between',
    alignItems: 'center',
+   justifyContent: 'space-between',
+   width: '100%',
 }))
 
 const TitleBox = styled('div')(() => ({
@@ -149,7 +149,7 @@ const UserName = styled('h4')(() => ({
 const StyledPending = styled('div')(() => ({
    display: 'flex',
    alignItems: 'center',
-   marginLeft: '330px',
+   marginLeft: '25rem',
    p: {
       marginRight: '4px',
       marginLeft: '10px',

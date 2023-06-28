@@ -7,7 +7,6 @@ import {
    getAllRequestsToFriend,
 } from '../../../service/friendsService'
 import RequestsToFriends from './RequstsToFriends'
-import Snackbar from '../../button/SnackBar'
 import UserCard from '../user-cards/UserCard'
 
 const Friends = () => {
@@ -57,45 +56,40 @@ const Friends = () => {
    const allUsersData = userData || []
    const allrequestToFriend = requestFirends || []
    return (
-      <>
-         <Snackbar />
-         <GlobalContainer>
-            <Tabs
-               followersCount={allUsersData?.length}
-               requestsCount={allrequestToFriend?.length}
-               requestTab={
-                  <RequestsToFriends
-                     requestToFriend={allrequestToFriend}
-                     getAllRequests={getAllRequests}
-                     errorFunction={errorFunction}
-                  />
-               }
-            >
-               <Container>
-                  {allUsersData?.map((item) => {
-                     return (
-                        <UserCard
-                           key={item.id}
-                           id={item.id}
-                           fullName={item.fullName}
-                           changeFlexContent
-                           image={item.image}
-                           count={item.countOfHolidays}
-                           countOfWish={item.countOfWishes}
-                           navigateHandler={() =>
-                              navigate(`${item.id}/profile`)
-                           }
-                        />
-                     )
-                  })}
-               </Container>
-            </Tabs>
-         </GlobalContainer>
-      </>
+      <GlobalContainer>
+         <Tabs
+            followersCount={allUsersData?.length}
+            requestsCount={allrequestToFriend?.length}
+            requestTab={
+               <RequestsToFriends
+                  requestToFriend={allrequestToFriend}
+                  getAllRequests={getAllRequests}
+                  errorFunction={errorFunction}
+               />
+            }
+         >
+            <Container>
+               {allUsersData?.map((item) => {
+                  return (
+                     <UserCard
+                        key={item.id}
+                        id={item.id}
+                        fullName={item.fullName}
+                        changeFlexContent
+                        image={item.image}
+                        count={item.countOfHolidays}
+                        countOfWish={item.countOfWishes}
+                        navigateHandler={() => navigate(`${item.id}/profile`)}
+                     />
+                  )
+               })}
+            </Container>
+         </Tabs>
+      </GlobalContainer>
    )
 }
 const GlobalContainer = styled('div')`
-   max-width: 1170px;
+   width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -105,6 +99,6 @@ const Container = styled('div')`
    display: flex;
    flex-wrap: wrap;
    align-items: flex-start;
-   gap: 45px;
+   gap: 40px;
 `
 export default memo(Friends)

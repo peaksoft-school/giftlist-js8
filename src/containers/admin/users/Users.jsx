@@ -13,7 +13,6 @@ import {
    deleteUserRequest,
    getAllUsersRequest,
 } from '../../../service/userService'
-import Snackbar from '../../../components/button/SnackBar'
 
 const Users = () => {
    const [searchParams, setSearchParams] = useSearchParams()
@@ -107,7 +106,6 @@ const Users = () => {
    }, [page])
    return (
       <>
-         <Snackbar />
          <MyModal open={booleanOpen} onClose={onCloseModal}>
             <GlobalModalContainer>
                <SecondContainer>
@@ -179,8 +177,8 @@ export default memo(Users)
 const Container = styled('div')`
    margin-top: 45px;
    display: flex;
-   gap: 45px;
-   max-width: 1170px;
+   gap: 35px;
+   width: 100%;
    height: 75vw;
    flex-wrap: wrap;
 `

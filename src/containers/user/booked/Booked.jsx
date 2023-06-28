@@ -8,7 +8,6 @@ import {
    getBookedCharities,
 } from '../../../redux/booked/bookedThunk'
 import useToastBar from '../../../hooks/useToastBar'
-import Snackbar from '../../../components/button/SnackBar'
 
 const Booked = () => {
    const dispatch = useDispatch()
@@ -33,19 +32,16 @@ const Booked = () => {
    )
 
    return (
-      <>
-         <Snackbar />
-         <BookedContainer>
-            <div>
-               <BookedWishes getWishesData={getWishesData} />
-               <BookedCharities getChraititesData={getChraititesData} />
-            </div>
-         </BookedContainer>
-      </>
+      <BookedContainer>
+         <div>
+            <BookedWishes getWishesData={getWishesData} />
+            <BookedCharities getChraititesData={getChraititesData} />
+         </div>
+      </BookedContainer>
    )
 }
 export default memo(Booked)
 
 const BookedContainer = styled('div')`
-   max-width: 1150px;
+   width: 100%;
 `
