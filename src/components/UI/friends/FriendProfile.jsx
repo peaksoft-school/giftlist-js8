@@ -2,17 +2,17 @@ import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { styled } from '@mui/material'
-import CustomProfile from '../../../components/UI/CustomProfile'
 import { getOneFriendRequest } from '../../../redux/friends/friendThunk'
 import { ACTION_TYPES } from '../../../utlis/constants/constnats'
 import { useMeatballs } from '../../../hooks/useMeatballs'
-import AdminCard from '../../../components/adminCard/AdminCard'
 import {
    acceptApplicationRequest,
    deleteOrAddToFriendRequest,
    rejectApplicationRequest,
 } from '../../../service/friendsService'
 import useToastBar from '../../../hooks/useToastBar'
+import AdminCard from '../../adminCard/AdminCard'
+import CustomProfile from '../CustomProfile'
 
 const FriendProfile = () => {
    const profileData = useSelector((state) => state.friends.friendProfile)

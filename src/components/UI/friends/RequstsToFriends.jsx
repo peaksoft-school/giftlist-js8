@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 import { styled } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import UserCard from '../../../components/UI/user-cards/UserCard'
 import {
    acceptApplicationRequest,
    rejectApplicationRequest,
 } from '../../../service/friendsService'
+import UserCard from '../user-cards/UserCard'
 
 const RequestsToFriends = ({
    requestToFriend,

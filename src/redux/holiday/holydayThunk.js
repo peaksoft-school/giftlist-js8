@@ -7,9 +7,9 @@ import {
 
 export const getHolidays = createAsyncThunk(
    'holiday/getHoliday',
-   async (showToast) => {
+   async ({ showToast, keyWord }) => {
       try {
-         const { data } = await getService()
+         const { data } = await getService(keyWord)
          return data
       } catch (error) {
          return showToast(
