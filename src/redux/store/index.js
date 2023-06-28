@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from '../reducer/auth/authSlice'
 import { lentaSlice } from '../lenta/lentaSlice'
-import { holidaySlice } from '../../hoc/holidaySlice'
+import { holidaySlice } from '../holiday/holidaySlice'
 import { charitySlice } from '../charities/charitySlice'
 import { complainsSlice } from '../complains/complainsSlice'
 import { userSlice } from '../user/userSlice'

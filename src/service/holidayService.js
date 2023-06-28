@@ -1,7 +1,11 @@
 import { axiosInstance } from '../api/axiosInstance'
 
-export const getService = () => {
-   return axiosInstance.get('api/holidays')
+export const getService = (keyWord) => {
+   return axiosInstance.get('api/holidays', {
+      params: {
+         keyWord,
+      },
+   })
 }
 
 export const postService = (url, postData) => {
